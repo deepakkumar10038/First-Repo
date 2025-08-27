@@ -7,10 +7,9 @@ terraform {
   }
   backend "azurerm" {
     resource_group_name  = "deep56"
-    storage_account_name = "deepstg57"
+    storage_account_name = "deep56stg"
     container_name       = "deepcnt"
-    key                  = "terraform.tfstate"
-    
+    key                  = "Dev.terraform.tfstate"
   }
   }
   
