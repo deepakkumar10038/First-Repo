@@ -5,10 +5,12 @@ pool: Deepakagent
 steps:
 
 - task: TerraformInstaller@1
+  displayName: -'terraform install'
   inputs:
     terraformVersion: 'latest'
 
 - task: TerraformTask@5
+  displayName: 'terraform init'
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -18,11 +20,13 @@ steps:
     backendAzureRmKey: 'Dev.terraform.tfstate'
 
 - task: TerraformTask@5
+  displayName: 'terraform validate'
   inputs:
     provider: 'azurerm'
     command: 'validate'
 
 - task: TerraformTask@5
+  displayName: 'terraform fmt'
   inputs:
     provider: 'azurerm'
     command: 'custom'
@@ -31,11 +35,17 @@ steps:
     environmentServiceNameAzureRM: 'Deepakservice Connection'
 
 - task: TerraformTask@5
+  displayName: 'terraform plan'
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'Deepakservice Connection'
 
-
+# - task: TerraformTask@5
+#   displayName: 'terraform apply'
+#   inputs:
+#     provider: 'azurerm'
+#     command: 'apply'
+#     environmentServiceNameAzureRM: 'Deepakservice Connection'
 
 
