@@ -5,6 +5,7 @@ resource "azurerm_resource_group" "rg" {
   location = "centralus"
 }
 resource "azurerm_storage_account" "stg" {
+  depends_on = [ azurerm_resource_group.rg ]
   name                     = "deepstg58"
   resource_group_name      = "deep56rg"
   location                 = "centralus"
